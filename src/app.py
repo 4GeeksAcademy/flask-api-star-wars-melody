@@ -166,7 +166,6 @@ def delete_fav_characters_foruser(user_id, character_id):
     response_body = {'msg':'character deleted from favorites'}
     return jsonify(response_body), 200
 
-#bonus 
 
 #post planet
 @app.route('/planets', methods = ['POST'])
@@ -174,7 +173,7 @@ def post_planet():
 
     data = request.json
     if data is None:
-        return jsonify({'msg': 'you have to write something lmao'}), 401
+        return jsonify({'msg': 'please create your planet'}), 401
     if 'id' not in data or 'name' not in data or 'climate' not in data or 'diameter' not in data or 'planetDesc' not in data or 'rotation_period' not in data or 'orbital_period' not in data or 'gravity' not in data or 'population' not in data or 'terrain' not in data or 'surface_water' not in data:
         return jsonify('something went wrong, check out the data'), 400
     new_planet = Planets(
